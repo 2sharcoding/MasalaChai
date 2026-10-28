@@ -1,5 +1,8 @@
 body {
     background-color: #222222;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://cdn.shopify.com/s/files/1/0751/7336/4026/files/Masala-chai-by-tanvi-boho-dresses-India.png?v=1787869270');
+    background-size: cover;
+    background-position: center;
 }
 
 img {
@@ -7,11 +10,12 @@ img {
     display: block;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 50px;
 }
 
 h1 {
     color: #ffffff;
     text-align: center;
     margin-top: 50px;
-    font-size: 3em;
+    font-family: 'poppins', sans-serif;
 }
