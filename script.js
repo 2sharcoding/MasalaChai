@@ -1,18 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
 
-  // Prevents stutter on mobile/tablets when the browser address bar hides/shows
-  ScrollTrigger.config({ ignoreMobileResize: true });
-
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#pinnedSection",
-      start: "top top",
-      end: "bottom bottom",
-      scrub: 1,
-    }
-  });
-  
   // Subtle parallax/fade timeline for both media and text layers
   const tl = gsap.timeline({
     scrollTrigger: {
@@ -41,7 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Countdown Timer
-  const launchDate = new Date("2026-12-01T10:00:00-05:00").getTime(); // Adjust to your exact launch date
+  const launchDate = new Date();
+  launchDate.setDate(launchDate.getDate() + 14); // Adjust to your exact launch date
 
   function updateTimer() {
     const daysEl = document.getElementById("days");
