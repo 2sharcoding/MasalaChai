@@ -217,3 +217,163 @@ h1, h2, .serif {
   max-width: 540px;
   margin-bottom: 2.2rem;
 }
+
+/* Countdown Timer - Responsive Grid */
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  width: 100%;
+  max-width: 440px;
+  margin-bottom: 2.5rem;
+}
+
+.time-box {
+  background: var(--bg-clay);
+  padding: 1.1rem 0.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(197, 155, 109, 0.25);
+}
+
+.time-box span {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--text-espresso);
+}
+
+.time-box small {
+  font-size: clamp(0.62rem, 1.8vw, 0.7rem);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+  display: block;
+}
+
+/* Email Capture Form */
+.waitlist-form {
+  display: flex;
+  width: 100%;
+  max-width: 480px;
+  gap: 0.6rem;
+  margin-bottom: 3rem;
+}
+
+.waitlist-form input {
+  flex: 1;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: 1px solid #D5CBBF;
+  border-radius: 50px;
+  background: #FFF;
+  font-family: inherit;
+  font-size: 16px; /* 16px prevents iOS Safari from auto-zooming on tap */
+  color: var(--text-espresso);
+  outline: none;
+}
+
+.waitlist-form input:focus {
+  border-color: var(--accent-terracotta);
+}
+
+.waitlist-form button {
+  padding: 1rem 1.8rem;
+  border: none;
+  border-radius: 50px;
+  background-color: var(--accent-terracotta);
+  color: #FFF;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+/* Brand Pillars Footer */
+.pillars {
+  display: flex;
+  gap: 1.5rem 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-top: 1px solid rgba(42, 34, 30, 0.1);
+  padding-top: 2rem;
+  width: 100%;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* =========================================
+   TABLET BREAKPOINT (iPads & Tablets)
+   ========================================= */
+@media (max-width: 1024px) {
+  .scroll-container {
+    height: 300vh; /* Slightly shorter scroll distance for touch screens */
+    padding: 0 2.5vw;
+  }
+
+  .sticky-stage {
+    border-radius: 20px;
+  }
+
+  .headline {
+    max-width: 90%;
+  }
+}
+
+/* =========================================
+   MOBILE BREAKPOINT (Phones)
+   ========================================= */
+@media (max-width: 768px) {
+  .intro {
+    min-height: 48dvh;
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .scroll-container {
+    height: 260vh; /* Faster, more natural thumb scroll on phones */
+    padding: 0 3vw;
+  }
+
+  .sticky-stage {
+    top: 2dvh;
+    height: 96dvh;
+    border-radius: 16px;
+  }
+
+  .headline {
+    padding: 0 1.25rem;
+  }
+
+  .waitlist-form {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .waitlist-form button {
+    width: 100%;
+    padding: 1.05rem;
+  }
+
+  .pillars {
+    flex-direction: column;
+    gap: 0.85rem;
+    align-items: center;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE BREAKPOINT
+   ========================================= */
+@media (max-width: 400px) {
+  .countdown {
+    grid-template-columns: repeat(2, 1fr); /* 2x2 grid on very narrow screens */
+    max-width: 260px;
+  }
+}
