@@ -4,11 +4,126 @@
     <title>Masala Chai - All things BOHO, handcrafted & rare</title>
     <link rel="stylesheet" href="style.css">
   </head>
-  <body>
-    <div class="logo">
-    <img src="https://cdn.shopify.com/s/files/1/0751/7336/4026/files/Masala-chai-Alternate-logo_6.png?v=1790718760" alt="Masala Chai Logo">
+  <body> <div class="top-bar">
+    ♡ Rooted in India, Now Unveiling in Canada ꕥ
+  </div>
+
+  <header class="logo">
+    <img src="https://cdn.shopify.com/s/files/1/0751/7336/4026/files/Masala-chai-Alternate-logo_6.png?v=1790718760" alt="Masala Chai by Tanvi Logo">
+  </header>
+
+  <section class="intro">
+    <p class="eyebrow">All Things Boho • Tribal • Rare</p>
+    <h1><i>Soulful Treasures,</i><br>Now Unveiling in Canada.</h1>
+    <div class="scroll-hint">
+      <span>Explore the Curation</span>
+      <span>↓</span>
     </div>
-    <h1>Coming Soon!</h1>
-    
+  </section>
+
+  <!-- The Scrollytelling Section -->
+  <div class="scroll-container" id="pinnedSection">
+    <div class="sticky-stage">
+
+      <!-- Background Images (Layered) -->
+      <div class="media-layer layer-1">
+        <img src="https://cdn.shopify.com/s/files/1/0751/7336/4026/files/buy-Bhumi-Spiral-Tribal-Brass-Bangles-online-india-1.png?v=1763582959" alt="Handcrafted Tribal Brass Bangles" />
+      </div>
+
+      <div class="media-layer layer-2">
+        <img src="https://cdn.shopify.com/s/files/1/0751/7336/4026/files/boho-tribal-brass-bangles-online-india.png?v=1781046781" alt="Everyday Bohemian Jewelry" />
+      </div>
+
+      <div class="media-layer layer-3">
+        <img src="https://cdn.shopify.com/s/files/1/0751/7336/4026/files/Masala-chai-by-tanvi-boho-dresses-India_7c304b8b-1313-40dc-b141-f1a02b551470.png?v=1787869346" alt="Breathable Handloom Jamdani Cottons" />
+      </div>
+
+      <!-- Foreground Text (Layered) -->
+      <div class="text-layer layer-1">
+        <p class="subline">01 / Small Batch Curation</p>
+        <h2 class="headline">Thoughtfully handpicked pieces, <i>ethically curated</i> with artisans across India.</h2>
+      </div>
+
+      <div class="text-layer layer-2">
+        <p class="subline">02 / Sacred Motifs</p>
+        <h2 class="headline">From handcrafted tribal brass to <i>everyday gold-plated jewels</i> that speak to your soul.</h2>
+      </div>
+
+      <div class="text-layer layer-3">
+        <p class="subline">03 / Slow Bohemian Living</p>
+        <h2 class="headline">Breathable Jamdani cottons & <i>flowy silhouettes</i> made for the free-spirited.</h2>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Launch Conversion Section -->
+  <section class="outro">
+    <p class="eyebrow">The Doors Open Soon</p>
+    <h2>Join Our Tribe of <i>Kindred Souls</i></h2>
+    <p>Our small-batch curations find their homes quickly. Sign up below for VIP early access to our Canadian launch and a special welcome treat on your first order.</p>
+
+    <div class="countdown" id="countdown">
+      <div class="time-box"><span id="days">14</span><small>Days</small></div>
+      <div class="time-box"><span id="hours">08</span><small>Hours</small></div>
+      <div class="time-box"><span id="minutes">45</span><small>Mins</small></div>
+      <div class="time-box"><span id="seconds">12</span><small>Secs</small></div>
+    </div>
+
+    <form class="waitlist-form" onsubmit="event.preventDefault(); alert('Welcome to the tribe! ♡');">
+      <input type="email" placeholder="Enter your email address..." required />
+      <button type="submit">Claim Early Access</button>
+    </form>
+
+    <div class="pillars">
+      <span>⚘ Female-Owned</span>
+      <span>𓇣 Curated in Small Batches</span>
+      <span>ꕥ Earth-Friendly Packaging</span>
+    </div>
+  </section>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Subtle parallax/fade timeline for both media and text layers
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#pinnedSection",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1.2,
+      }
+    });
+
+    // Step 1: Layer 1 -> Layer 2
+    tl.to(".media-layer.layer-1", { opacity: 0, scale: 1.08, duration: 1 })
+      .to(".text-layer.layer-1", { opacity: 0, y: -30, duration: 0.8 }, "<")
+      .to(".media-layer.layer-2", { opacity: 1, scale: 1, duration: 1 }, "<")
+      .to(".text-layer.layer-2", { opacity: 1, y: 0, duration: 1 }, "<+=0.2")
+
+    // Step 2: Layer 2 -> Layer 3
+      .to(".media-layer.layer-2", { opacity: 0, scale: 1.08, duration: 1 }, "+=0.4")
+      .to(".text-layer.layer-2", { opacity: 0, y: -30, duration: 0.8 }, "<")
+      .to(".media-layer.layer-3", { opacity: 1, scale: 1, duration: 1 }, "<")
+      .to(".text-layer.layer-3", { opacity: 1, y: 0, duration: 1 }, "<+=0.2");
+
+    // Simple 14-day Countdown Timer Script (Set target date below)
+    const launchDate = new Date();
+    launchDate.setDate(launchDate.getDate() + 14); // Adjust to your exact launch date
+
+    function updateTimer() {
+      const now = new Date().getTime();
+      const diff = launchDate - now;
+      if (diff <= 0) return;
+
+      document.getElementById("days").innerText = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+      document.getElementById("hours").innerText = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+      document.getElementById("minutes").innerText = String(Math.floor((diff / 1000 / 60) % 60)).padStart(2, '0');
+      document.getElementById("seconds").innerText = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
+    }
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  </script>
+
   </body>
 </html>
