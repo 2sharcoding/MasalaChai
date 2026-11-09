@@ -308,17 +308,19 @@ h1, h2, .serif {
   text-transform: uppercase;
   color: var(--text-muted);
 }
-
 /* =========================================
    TABLET BREAKPOINT (iPads & Tablets)
    ========================================= */
 @media (max-width: 1024px) {
   .scroll-container {
-    height: 300vh; /* Slightly shorter scroll distance for touch screens */
-    padding: 0 2.5vw;
+    height: 280vh;
+    padding: 0 4vw;
   }
 
   .sticky-stage {
+    /* Centers a 72% height card vertically on tablet screens */
+    height: 72dvh;
+    top: 14dvh; 
     border-radius: 20px;
   }
 
@@ -332,23 +334,31 @@ h1, h2, .serif {
    ========================================= */
 @media (max-width: 768px) {
   .intro {
-    min-height: 48dvh;
-    padding: 1.5rem 1rem 2.5rem;
+    min-height: 42dvh;
+    padding: 1.5rem 1rem 2rem;
   }
 
   .scroll-container {
-    height: 260vh; /* Faster, more natural thumb scroll on phones */
-    padding: 0 3vw;
+    height: 240vh;
+    padding: 0 4vw;
   }
 
   .sticky-stage {
-    top: 2dvh;
-    height: 96dvh;
+    /* Compact editorial card (58% of screen height) centered vertically */
+    height: 58dvh;
+    max-height: 460px;
+    top: 21dvh; 
     border-radius: 16px;
   }
 
   .headline {
+    font-size: clamp(1.45rem, 6vw, 2rem);
     padding: 0 1.25rem;
+  }
+
+  .subline {
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
   }
 
   .waitlist-form {
@@ -365,15 +375,5 @@ h1, h2, .serif {
     flex-direction: column;
     gap: 0.85rem;
     align-items: center;
-  }
-}
-
-/* =========================================
-   SMALL MOBILE BREAKPOINT
-   ========================================= */
-@media (max-width: 400px) {
-  .countdown {
-    grid-template-columns: repeat(2, 1fr); /* 2x2 grid on very narrow screens */
-    max-width: 260px;
   }
 }
