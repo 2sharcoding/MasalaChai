@@ -444,3 +444,87 @@ h1, h2, .serif {
     font-size: 0.85rem;
   }
 }
+
+/* Updated Top Bar with India Link */
+.top-bar {
+  background-color: var(--bg-clay);
+  color: var(--text-espresso);
+  text-align: center;
+  padding: 0.65rem 1rem;
+  font-size: clamp(0.72rem, 2vw, 0.82rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.top-bar-divider {
+  color: var(--accent-brass);
+  opacity: 0.6;
+}
+
+.india-top-link {
+  color: var(--accent-terracotta);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.india-top-link:hover {
+  color: var(--text-espresso);
+}
+
+/* Outro India Store Callout Box */
+.india-store-card {
+  background-color: var(--bg-clay);
+  border: 1px solid rgba(197, 155, 109, 0.35);
+  border-radius: 16px;
+  padding: 1.25rem 1.75rem;
+  margin-bottom: 3rem;
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.india-store-card p {
+  margin: 0 !important;
+  font-size: 0.92rem !important;
+  color: var(--text-muted);
+}
+
+.india-store-btn {
+  display: inline-block;
+  color: var(--text-espresso);
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--accent-terracotta);
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.india-store-btn:hover {
+  color: var(--accent-terracotta);
+}
+
+/* Mobile tweak so the top bar stacks cleanly on phones */
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.6rem 0.75rem;
+  }
+  .top-bar-divider {
+    display: none;
+  }
+  .india-store-card {
+    padding: 1.15rem 1rem;
+  }
+}
