@@ -48,3 +48,39 @@ document.addEventListener("DOMContentLoaded", () => {
   setInterval(updateTimer, 1000);
   updateTimer();
 });
+
+// Waitlist Email Submission to info@masala-chai.com
+  const waitlistForm = document.getElementById("waitlistForm");
+  const submitBtn = document.getElementById("submitBtn");
+  const formMessage = document.getElementById("formMessage");
+
+  if (waitlistForm) {
+    waitlistForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      submitBtn.innerText = "Sending...";
+      submitBtn.disabled = true;
+
+      const formData = new FormData(waitlistForm);
+
+      fetch(waitlistForm.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        waitlistForm.reset();
+        submitBtn.innerText = "Joined ♡";
+        formMessage.style.display = "block";
+        formMessage.innerText = "Welcome to the tribe! You're on the early access list. ♡";
+      })
+      .catch(error => {
+        submitBtn.innerText = "Claim Early Access";
+        submitBtn.disabled = false;
+        formMessage.style.display = "block";
+        formMessage.innerText = "Something went wrong. Please email us directly at info@masala-chai.com";
+      });
+    });
+  }

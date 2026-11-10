@@ -107,10 +107,19 @@
       <div class="time-box"><span id="seconds">12</span><small>Secs</small></div>
     </div>
 
-    <form class="waitlist-form" onsubmit="event.preventDefault(); alert('Welcome to the tribe! ♡');">
-      <input type="email" placeholder="Enter your email address..." required />
-      <button type="submit">Claim Early Access</button>
+    <form class="waitlist-form" id="waitlistForm" action="https://formsubmit.co/ajax/info@masala-chai.com" method="POST">
+      <!-- Custom Email Subject Line in your Inbox -->
+      <input type="hidden" name="_subject" value="New Canada Launch Waitlist Signup! (masalachaibytanvi.ca)" />
+      <!-- Clean Table Template in Email -->
+      <input type="hidden" name="_template" value="table" />
+      <!-- Anti-spam honeypot field -->
+      <input type="text" name="_honey" style="display:none" />
+
+      <input type="email" name="Customer_Email" placeholder="Enter your email address..." required />
+      <button type="submit" id="submitBtn">Claim Early Access</button>
     </form>
+    <p id="formMessage" style="display:none; color: var(--accent-terracotta); font-weight: 500; margin-top: -2rem; margin-bottom: 2.5rem;"></p>
+
 <!-- India Store Redirect Callout -->
     <div class="india-store-card">
       <p>Currently in India? You don’t have to wait!</p>
